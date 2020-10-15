@@ -28,7 +28,7 @@
 | status_id          | integer | null: false                    |
 | shipping_cost_id   | integer | null: false                    |
 | shipping_timing_id | integer | null: false                    |
-| shipping_source_id | integer | null: false                    |
+| prefecture_id      | integer | null: false                    |
 
 ### Association
 - belongs_to :user
@@ -50,15 +50,15 @@
 
 ## deliveriesテーブル
 
-| Column          | Type    | Options     |
-| --------------- | ------- | ----------- |
-| postal_code     | string  | null: false |
-| prefecture_id   | integer | null: false |
-| municipality    | string  | null: false |
-| address_number  | string  | null: false |
-| building_name   | string  |             |
-| phone_number    | string  | null: false |
-
+| Column          | Type    | Options                        | 
+| --------------- | ------- | ------------------------------ |
+| postal_code     | string  | null: false                    | 
+| prefecture_id   | integer | null: false                    | 
+| municipality    | string  | null: false                    | 
+| address_number  | string  | null: false                    | 
+| building_name   | string  |                                | 
+| phone_number    | string  | null: false                    | 
+| order_id        | integer | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :order
