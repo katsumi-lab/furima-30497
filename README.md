@@ -18,11 +18,13 @@
 
 ## productsテーブル
 
-| Column          | Type    | Options     |
-| --------------- | ------- | ----------- |
-| status          | integer | null: false |
-| shipping_cost   | integer | null: false |
-| shipping_timing | integer | null: false |
+| Column          | Type    | Options                        |
+| --------------- | ------- | ------------------------------ |
+| user_id         | integer | null: false, foreign_key: true |
+| status          | integer | null: false                    |
+| shipping_cost   | integer | null: false                    |
+| shipping_timing | integer | null: false                    |
+| shipping_source | string  | null: false                    |
 
 ### Association
 - belongs_to :user
@@ -48,9 +50,9 @@
 | --------------- | ------- | ----------- |
 | postal_code     | string  | null: false |
 | prefecture      | integer |             |
-| municipality    | string  |             |
+| municipality    | integer |             |
 | address_number  | integer |             |
-| building_name   | string  |             |
+| building_name   | integer |             |
 | phone_number    | string  | null: false |
 
 
