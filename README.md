@@ -21,6 +21,7 @@
 | Column          | Type    | Options                        |
 | --------------- | ------- | ------------------------------ |
 | user_id         | integer | null: false, foreign_key: true |
+| category        | string  | null: false                    |
 | status          | integer | null: false                    |
 | shipping_cost   | integer | null: false                    |
 | shipping_timing | integer | null: false                    |
