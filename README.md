@@ -9,7 +9,7 @@
 | first_name       | string  | null: false |
 | family_name_kana | string  | null: false |
 | first_name_kana  | string  | null: false |
-| date             | string  | null: false |
+| date             | date    | null: false |
 
 ### Association
 - has_many :products
@@ -20,10 +20,6 @@
 
 | Column          | Type    | Options     |
 | --------------- | ------- | ----------- |
-| name            | string  | null: false |
-| price           | integer | null: false |
-| description     | text    | null: false |
-| image           | text    | null: false |
 | status          | integer | null: false |
 | shipping_cost   | integer | null: false |
 | shipping_timing | integer | null: false |
