@@ -1,10 +1,15 @@
 ## usersテーブル
 
-| Column    | Type    | Options                        |
-| --------- | ------- | ------------------------------ |
-| email     | string  | null: false, foreign_key: true |
-| password  | string  | null: false, foreign_key: true |
-| name      | string  | null: false, foreign_key: true |
+| Column           | Type    | Options     |
+| ---------------- | ------- | ----------- |
+| email            | string  | null: false |
+| password         | string  | null: false |
+| nickname         | string  | null: false |
+| family_name      | string  | null: false |
+| first_name       | string  | null: false |
+| family_name_kana | string  | null: false |
+| first_name_kana  | string  | null: false |
+| date             | string  | null: false |
 
 ### Association
 - has_many :products
@@ -13,16 +18,15 @@
 
 ## productsテーブル
 
-| Column          | Type    | Options                        |
-| --------------- | ------- | ------------------------------ |
-| name            | string  | null: false, foreign_key: true |
-| price           | integer | null: false, foreign_key: true |
-| description     | text    | null: false, foreign_key: true |
-| user_id        | integer | null: false, foreign_key: true |
-| image           | text    | null: false, foreign_key: true |
-| status          | string  | null: false, foreign_key: true |
-| shipping_cost   | string  | null: false, foreign_key: true |
-| shipping_timing | string  | null: false, foreign_key: true |
+| Column          | Type    | Options     |
+| --------------- | ------- | ----------- |
+| name            | string  | null: false |
+| price           | integer | null: false |
+| description     | text    | null: false |
+| image           | text    | null: false |
+| status          | integer | null: false |
+| shipping_cost   | integer | null: false |
+| shipping_timing | integer | null: false |
 
 ### Association
 - belongs_to :user
@@ -35,9 +39,6 @@
 | --------------- | ------- | ------------------------------ |
 | user_id         | integer | null: false, foreign_key: true |
 | product_id      | integer | null: false, foreign_key: true |
-| card_number     | integer | null: false, foreign_key: true |
-| good_thru       | integer | null: false, foreign_key: true |
-| security_code   | integer | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -47,16 +48,15 @@
 
 ## deliveriesテーブル
 
-| Column          | Type    | Options                        |
-| --------------- | ------- | ------------------------------ |
-| postal_code     | integer | null: false, foreign_key: true |
-| prefecture      | string  | null: false, foreign_key: true |
-| municipality    | string  | null: false, foreign_key: true |
-| address_number  | integer | null: false, foreign_key: true |
-| building_name   | string  | null: false, foreign_key: true |
-| phone_number    | integer | null: false, foreign_key: true |
-| user_id         | integer | null: false, foreign_key: true |
-| order_id        | integer | null: false, foreign_key: true |
+| Column          | Type    | Options     |
+| --------------- | ------- | ----------- |
+| postal_code     | string  | null: false |
+| prefecture      | integer |             |
+| municipality    | string  |             |
+| address_number  | integer |             |
+| building_name   | string  |             |
+| phone_number    | string  | null: false |
+
 
 ### Association
 - belongs_to :order
