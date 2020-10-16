@@ -53,6 +53,7 @@ RSpec.describe User, type: :model do
       user = FactoryBot.build(:user)
       user.date = ""
       user.valid?
+      binding.pry
       expect(user.errors.full_messages).to include("Date can't be blank")
     end
   end
