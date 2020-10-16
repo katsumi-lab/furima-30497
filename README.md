@@ -16,7 +16,7 @@
 - has_many :orders
 
 
-## productsテーブル
+## itemsテーブル
 
 | Column             | Type    | Options                        |
 | ------------------ | ------- | ------------------------------ |
@@ -40,7 +40,7 @@
 | Column          | Type    | Options                        |
 | --------------- | ------- | ------------------------------ |
 | user_id         | integer | null: false, foreign_key: true |
-| product_id      | integer | null: false, foreign_key: true |
+| item_id      | integer | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
