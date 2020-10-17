@@ -93,7 +93,7 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Date can't be blank")
     end
 
-    it "必要な情報を全て入力しないと登録できない" do
+    it "必要な情報を全て入力すれば登録できる" do
       @user.nickname = "abe"
       @user.email = "kkk@gmail.com"
       @user.password = "0000000"
