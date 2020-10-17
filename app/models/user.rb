@@ -8,9 +8,7 @@ class User < ApplicationRecord
     validates :nickname
     validates :date
   end
-  
   validates :password, length: { minimum: 7 }
-
   validates :password, confirmation: true
 
   with_options presence: true do
