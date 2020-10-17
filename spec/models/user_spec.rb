@@ -92,5 +92,18 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Date can't be blank")
     end
+
+    it "必要な情報を全て入力しないと登録できない" do
+      @user.nickname = "abe"
+      @user.email = "kkk@gmail.com"
+      @user.password = "0000000"
+      @user.password_confirmation = "0000000"
+      @user.family_name = "山田"
+      @user.first_name = "太郎"
+      @user.family_name_kana = "ヤマダ"
+      @user.first_name_kana = "タロウ"
+      @user.date = "1930-01-01"
+      expect(@user).to be_valid
+    end
   end
 end
