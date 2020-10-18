@@ -10,7 +10,11 @@ class ItemsController < ApplicationController
   def create
     @items = Item.new(item_params)
     @items.valid?
-    @items.save
+    if @items.save
+      redirect_to root_path
+    else
+      render new_item_path
+    end
   end
   private
 
