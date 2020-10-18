@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :item do
       name               {"name"}
-      price              {"0000000"}
+      price              {"300-9999999"}
       description        { Faker::Lorem.paragraph }
       user_id            {"0"}
       category_id        {2}
@@ -9,6 +9,6 @@ FactoryBot.define do
       shipping_cost_id   {2}
       shipping_timing_id {2}
       prefecture_id      {2}
+      association :user
   end
-  belongs_to :user
 end
