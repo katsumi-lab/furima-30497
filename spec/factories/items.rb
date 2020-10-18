@@ -10,4 +10,5 @@ FactoryBot.define do
       shipping_timing_id {2}
       prefecture_id      {2}
   end
+  belongs_to :user
 end
