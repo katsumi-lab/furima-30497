@@ -12,15 +12,21 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :description
+    validates :price
+  end
+
+  with_options inclusion: { in: [{id: 1}] } do
     validates :category_id
     validates :status_id
     validates :shipping_cost_id
     validates :prefecture_id
     validates :shipping_timing_id
-    validates :price
   end
 
-  validates  :price, numericality: 
+  validates :price, numericality: 
     {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 } 
   validates :price, format: { with: /\A[0-9]\w*\z/ }
 end
+
+
+
