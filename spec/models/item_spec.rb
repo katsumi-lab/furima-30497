@@ -71,14 +71,6 @@ RSpec.describe Item, type: :model do
     end
 
     it "必要な情報を全て入力すれば登録できる" do
-      # @item.name = "name"
-      # @item.price = 300
-      # @item.description = Faker::Lorem.paragraph
-      # @item.category_id = 2
-      # @item.status_id = 2
-      # @item.shipping_cost_id = 2
-      # @item.shipping_timing_id = 2
-      # @item.prefecture_id = 2
       expect(@item).to be_valid
     end
 end
