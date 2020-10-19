@@ -5,9 +5,6 @@ class ItemsController < ApplicationController
     @items = Item.all.order("created_at DESC")
   end
 
-  def show
-  end
-
   def new
     @item = Item.new
   end
@@ -20,6 +17,13 @@ class ItemsController < ApplicationController
     else
       render new_item_path
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  def edit
   end
   private
 
