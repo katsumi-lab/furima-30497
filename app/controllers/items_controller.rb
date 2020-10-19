@@ -31,7 +31,11 @@ class ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])
     item.update(item_params)
-    
+    if item.save
+      redirect_to root_path
+    else
+      render new_item_path
+    end
   end
 
   private
