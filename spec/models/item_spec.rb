@@ -70,7 +70,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price is not a number")
     end
     it "価格は半角数字でないと登録できない" do
-      @item.price = 0000000
+      @item.price = "0000000"
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
@@ -79,11 +79,11 @@ RSpec.describe Item, type: :model do
       @item.name = "name"
       @item.price = "0000000"
       @item.description = Faker::Lorem.paragraph
-      @item.user_id = "0"
-      @item.category_id = "0"
-      @item.status_id = "0"
-      @item.shipping_cost_id = "0"
-      @item.shipping_timing_id = "0"
-      @item.prefecture_id = "0"
+      @item.category_id = 2
+      @item.status_id = 2
+      @item.shipping_cost_id = 2
+      @item.shipping_timing_id = 2
+      @item.prefecture_id = 2
+      expect(@item).to be_valid?
     end
 end
