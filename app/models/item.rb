@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  with_options inclusion: { in: [{id: 1}] } do
+  with_options numericality: {other_than:1} do
     validates :category_id
     validates :status_id
     validates :shipping_cost_id
