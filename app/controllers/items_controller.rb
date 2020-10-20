@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
       render new_item_path
     end
   end
-
+binding.pry
   def show
   end
 
@@ -38,8 +38,11 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    item.destroy
-    redirect_to root_path
+    if item.destroy
+      redirect_to item_path(item.id)
+    else
+      render edit_item_path
+    end
   end
   private
 
