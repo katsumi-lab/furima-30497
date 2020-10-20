@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_timing
   belongs_to :user
   has_one_attached :image
-  
+
   with_options presence: true do
     validates :image
     validates :name
@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  with_options numericality: {other_than:1} do
+  with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :status_id
     validates :shipping_cost_id
@@ -23,10 +23,7 @@ class Item < ApplicationRecord
     validates :shipping_timing_id
   end
 
-  validates :price, numericality: 
-    {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 } 
+  validates :price, numericality:
+    { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   validates :price, format: { with: /\A[0-9]\w*\z/ }
 end
-
-
-
