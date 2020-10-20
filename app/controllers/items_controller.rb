@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
       render new_item_path
     end
   end
-binding.pry
+
   def show
   end
 
