@@ -45,7 +45,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :product
-- has_one :delivery
+- has_one :item
 
 
 ## deliveriesテーブル
