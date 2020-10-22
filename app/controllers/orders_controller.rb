@@ -7,7 +7,6 @@ before_action :set_item, only:[:index, :create]
 
   def create
     @order_delivery = OrderDelivery.new(order_params)
-    binding.pry
     if @order_delivery.valid?
       pay_item
       @order_delivery.save
