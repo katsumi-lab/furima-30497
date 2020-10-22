@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-before_action :set_item, only:[:index, :create]
+  before_action :move_to_index, except: :index
+  before_action :set_item, only:[:index, :create]
 
   def index
     @order_delivery = OrderDelivery.new
@@ -17,6 +18,12 @@ before_action :set_item, only:[:index, :create]
   end
 
   private
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
 
   def set_item
     @item = Item.find(params[:item_id])
