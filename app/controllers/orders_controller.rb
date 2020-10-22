@@ -9,13 +9,7 @@ before_action :set_item, only:[:index, :create]
     @order_delivery = OrderDelivery.new(order_params)
     binding.pry
     if @order_delivery.valid?
-      Payjp.api_key = "sk_test_79defe0182ded749b54164e8"
-      Payjp::Charge.create(
-        amount: @item.price, 
-        card: order_params[:token],
-        currency: 'jpy'
-      )
-      
+      pay_item
       @order_delivery.save
       redirect_to root_path
     elsif
@@ -32,5 +26,14 @@ before_action :set_item, only:[:index, :create]
   def order_params
     # order = Order.create(user_id: @item.user.id, item_id: @item.id)
     params.require(:order_delivery).permit(:postal_code, :prefecture_id, :municipality, :address_number, :building_name, :phone_number,:authenticity_token).merge(user_id: @item.user.id, item_id: @item.id,  token: params[:token],)
+  end
+
+  def pay_item
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      Payjp::Charge.create(
+        amount: @item.price, 
+        card: order_params[:token],
+        currency: 'jpy'
+      )
   end
 end
