@@ -8,11 +8,10 @@ class OrderDelivery
     validates :municipality
     validates :address_number
     validates :phone_number
-    validates :order_id
-    validates :user_id
-    validates :item_id
   end
   
+  validates :postal_code, format:{ with: /\A\d{3}[-]\d{4}\z/ }
+  validates :phone_number, format:{ with: /0[0-9]{1,4}-[0-9]{1,6}(-[0-9]{0,5})?/ }
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
