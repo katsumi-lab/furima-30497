@@ -43,7 +43,7 @@ RSpec.describe OrderDelivery, type: :model do
   it '電話番号がハイフンなしの11桁だと登録できる' do
     @order_delivery.phone_number = '09012345678'
     @order_delivery.valid?
-    expect(@order_delivery.phone_number).to be_valid
+    expect(@order_delivery).to be_valid
   end
 
   it "tokenが空では登録できないこと" do
