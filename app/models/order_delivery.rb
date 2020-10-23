@@ -13,7 +13,7 @@ class OrderDelivery
   
   validates :postal_code, format:{ with: /\A\d{3}[-]\d{4}\z/ }
   validates :phone_number, format:{ with: /0[0-9]{11}?/ }
-  validates :prefecture, numericality:{other_than: 1 }
+  validates :prefecture_id, numericality:{other_than: 1 }
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)

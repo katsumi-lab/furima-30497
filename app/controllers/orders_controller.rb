@@ -30,7 +30,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    # order = Order.create(user_id: @item.user.id, item_id: @item.id)
     params.require(:order_delivery).permit(:postal_code, :prefecture_id, :municipality, :address_number, :building_name, :phone_number,:authenticity_token).merge(user_id: @item.user.id, item_id: @item.id,  token: params[:token],)
   end
 

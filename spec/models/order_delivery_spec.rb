@@ -41,9 +41,9 @@ RSpec.describe OrderDelivery, type: :model do
     expect(@order_delivery.errors.full_messages).to include("Phone number can't be blank")
   end
   it '電話番号がハイフンなしの11桁だと登録できる' do
-    @order_delivery.phone_number = "090-1234-5678"
+    @order_delivery.phone_number = '09012345678'
     @order_delivery.valid?
-    expect(@order_delivery.errors.full_messages).to include()
+    expect(@order_delivery.phone_number).to be_valid
   end
 
   it "tokenが空では登録できないこと" do
