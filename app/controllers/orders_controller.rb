@@ -20,8 +20,10 @@ class OrdersController < ApplicationController
   private
 
   def move_to_index
-    unless user_signed_in?
+    if user_signed_in? && current_user.id == @item.user.id
       redirect_to action: :index
+    elsif
+      render 'index'
     end
   end
 
