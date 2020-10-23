@@ -45,6 +45,16 @@ RSpec.describe OrderDelivery, type: :model do
     @order_delivery.valid?
     expect(@order_delivery).to be_valid
   end
+  it '電話番号にハイフンがあると登録できない' do
+    @order_delivery.phone_number = '090-1234-5678'
+    @order_delivery.valid?
+    expect(@order_delivery.errors.full_messages).to include()
+  end
+  it '電話番号11桁以上だと登録できない' do
+    @order_delivery.phone_number = '090123456789'
+    @order_delivery.valid?
+    expect(@order_delivery.errors.full_messages).to include()
+  end
 
   it "tokenが空では登録できないこと" do
     @order_delivery.token = nil
