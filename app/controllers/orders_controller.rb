@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :move_to_index, except: [:index, :create]
   before_action :set_item, only:[:index, :create]
+  before_action :basic_auth
 
   def index
     @order_delivery = OrderDelivery.new
@@ -43,5 +44,11 @@ class OrdersController < ApplicationController
         card: order_params[:token],
         currency: 'jpy'
       )
+  end
+
+  def basic_auth
+    authenticate_or_request_with_http_basic do |username, password|
+      username == 'admin' && password == '2222'
+    end
   end
 end

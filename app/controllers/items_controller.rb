@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :set_item, only:[:show, :edit, :update, :destroy]
   before_action :redirect_to_index, only: :destroy
+  before_action :basic_auth
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -59,6 +60,12 @@ class ItemsController < ApplicationController
   def redirect_to_index
     unless user_signed_in? == @item.user.id
       redirect_to action: :index 
+    end
+  end
+
+  def basic_auth
+    authenticate_or_request_with_http_basic do |username, password|
+      username == 'admin' && password == '2222'
     end
   end
 end
