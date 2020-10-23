@@ -26,8 +26,12 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def update
-    if @item.update(item_params)
+    if @item.update!(item_params)
+      binding.pry
       redirect_to item_path(@item.id)
     else
       render edit_item_path
