@@ -6,6 +6,7 @@ RSpec.describe OrderDelivery, type: :model do
   end
 
   describe '商品購入ができる'
+
   it '郵便番号が空だと登録できない' do
     @order_delivery.postal_code = ''
     @order_delivery.valid?
@@ -60,5 +61,9 @@ RSpec.describe OrderDelivery, type: :model do
     @order_delivery.token = nil
     @order_delivery.valid?
     expect(@order_delivery.errors.full_messages).to include("Token can't be blank")
+  end
+
+  it "必要な情報をすべて入力すれば商品が購入できる" do
+    except(@order_delivery).to be_valid
   end
 end
