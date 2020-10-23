@@ -40,12 +40,12 @@
 | Column          | Type    | Options                        |
 | --------------- | ------- | ------------------------------ |
 | user_id         | integer | null: false, foreign_key: true |
-| item_id      | integer | null: false, foreign_key: true |
+| item_id         | integer | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to :product
-- has_one :delivery
+- has_one :item
 
 
 ## deliveriesテーブル
