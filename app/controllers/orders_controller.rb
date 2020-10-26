@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :move_to_index, except: :create
+  before_action :redirect_to_index, only: :index
   before_action :set_item, only:[:index, :create]
   before_action :basic_auth
 
@@ -9,7 +10,6 @@ class OrdersController < ApplicationController
 
   def create
     @order_delivery = OrderDelivery.new(order_params)
-    binding.pry
     if @order_delivery.valid?
       pay_item
       @order_delivery.save
@@ -25,6 +25,12 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     if user_signed_in? && current_user.id == @item.user.id
       redirect_to root_path
+    end
+  end
+
+  def redirect_to_index
+    unless user_signed_in?
+      redirect_to root_path 
     end
   end
 
