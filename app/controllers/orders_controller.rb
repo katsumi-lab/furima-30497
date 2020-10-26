@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :move_to_index, except: :create
   before_action :redirect_to_index, only: :index
   before_action :set_item, only:[:index, :create]
+  before_action :sold_out_item, only:[:index, :create]
   before_action :basic_auth
 
   def index
@@ -31,6 +32,12 @@ class OrdersController < ApplicationController
   def redirect_to_index
     unless user_signed_in?
       redirect_to root_path 
+    end
+  end
+
+  def sold_out_item
+    if @item.order.present?
+      redirect_to root_path
     end
   end
 
