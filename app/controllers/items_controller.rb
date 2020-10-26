@@ -30,11 +30,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update!(item_params)
-      binding.pry
+    if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
-      render edit_item_path
+      render action: :edit
     end
   end
 
