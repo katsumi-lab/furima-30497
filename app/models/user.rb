@@ -10,6 +10,7 @@ class User < ApplicationRecord
   end
   validates :password, length: { minimum: 6 }
   validates :password, confirmation: true
+  validates :password, format:{ with: /\A(?=.*?[a-z])(?=.*?\d)(?=.*?[!-\/:-@\[-`{-~])[!-~]{6,100}+\z/i}
 
   with_options presence: true do
     with_options format: { with: /^[ぁ-んァ-ン一-龥]/, multiline: true } do
