@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 
   def redirect_to_index
     unless user_signed_in?
-      redirect_to root_path 
+      redirect_to new_user_session_path 
     end
   end
 
