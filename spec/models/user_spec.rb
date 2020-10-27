@@ -96,8 +96,8 @@ RSpec.describe User, type: :model do
     it '必要な情報を全て入力すれば登録できる' do
       @user.nickname = 'abe'
       @user.email = 'kkk@gmail.com'
-      @user.password = '0000000'
-      @user.password_confirmation = '0000000'
+      @user.password = '000000'
+      @user.password_confirmation = '000000'
       @user.family_name = '山田'
       @user.first_name = '太郎'
       @user.family_name_kana = 'ヤマダ'
