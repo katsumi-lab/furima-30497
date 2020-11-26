@@ -1,3 +1,22 @@
+# README
+
+## アプリケーション名 ： 
+furima
+
+## アプリケーション概要 : 
+有名フリマアプリのクローンサイト。スクール最終課題。
+
+## URL : 
+https://furima-30497.herokuapp.com/#
+
+## テスト用アカウント : 
+お名前　　　：山田　太郎
+お名前カナ　：ヤマダ　タロウ
+ニックネーム：sample2
+誕生日：1930/01/01
+Eメール　：sample2@gmail.com
+パスワード　：sample2
+
 ## usersテーブル
 
 | Column           | Type    | Options     |
