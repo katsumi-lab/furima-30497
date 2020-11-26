@@ -7,7 +7,11 @@ furima
 有名フリマアプリのクローンサイト。スクール最終課題。
 
 ## URL : 
-https://furima-30497.herokuapp.com/#
+https://furima-30497.herokuapp.com
+
+## Basic認証
+ID：admin
+PASS：2222
 
 ## テスト用アカウント : 
 お名前　　　：山田　太郎
@@ -16,6 +20,13 @@ https://furima-30497.herokuapp.com/#
 誕生日：1930/01/01
 Eメール　：sample2@gmail.com
 パスワード　：sample2
+
+## 購入者用カード情報
+番号：4242424242424242
+期限：Fri Apr 24 2020 00:00:00 GMT+0900 (日本標準時)
+セキュリティコード：123
+テストID(購入者用)：sample1@gmail.com
+テストPASS(購入者用)：sample1
 
 ## usersテーブル
 
